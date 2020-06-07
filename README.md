@@ -1,24 +1,20 @@
-# README
+# wizard_app DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|text|null: false|
+|age|integer|null: false|
+|email|string|null: false|
+|password|string|null: false|
+### Association
+- has_one :address
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|zipcode|integer||
+|address|text||
+|user_id|reference|optional: true|
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :user
