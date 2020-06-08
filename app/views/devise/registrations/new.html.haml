@@ -1,6 +1,7 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
+%h2 ユーザー情報登録
+
+= form_for(@user, url: user_registration_path) do |f|
+  = render "devise/shared/error_messages", resource: @user
   .field
     = f.label :name
     %br/
@@ -12,7 +13,7 @@
   .field
     = f.label :email
     %br/
-    = f.email_field :email, sutofocus: true, autocomplete: "email"
+    = f.email_field :email, autofocus: true, autocomplete: "email"
   .field
     = f.label :password
     - if @minimum_password_length
@@ -25,5 +26,5 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .actions
-    = f.submit "Sign up"
+    = f.submit "Next"
 = render "devise/shared/links"
